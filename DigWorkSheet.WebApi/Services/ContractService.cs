@@ -14,8 +14,7 @@ namespace DigWorkSheet.WebApi.Services
         {
             _context = context;
         }
-
-        //Use AutoMapper
+        //Use AutoMapper OOBAVEZNOOOOO
         public List<Model.Contract> Get()
         {
             var list = _context.Contracts.ToList();
