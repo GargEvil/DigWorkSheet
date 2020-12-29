@@ -35,7 +35,7 @@ namespace DigWorkSheet.WebApi.Database
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=(local);Database=DigWorkSheet;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=.;Database=DigWorkSheet;Trusted_Connection=True;");
             }
         }
 
@@ -49,7 +49,7 @@ namespace DigWorkSheet.WebApi.Database
 
                 entity.Property(e => e.Email)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.Property(e => e.Password)
                     .IsRequired()
@@ -57,11 +57,11 @@ namespace DigWorkSheet.WebApi.Database
 
                 entity.Property(e => e.PhoneNumber)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.Property(e => e.UserName)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
             });
 
             modelBuilder.Entity<Administrator>(entity =>
@@ -70,15 +70,15 @@ namespace DigWorkSheet.WebApi.Database
 
                 entity.Property(e => e.Adress)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.Property(e => e.FirstName)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.Property(e => e.LastName)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.HasOne(d => d.Account)
                     .WithMany(p => p.Administrators)
@@ -94,7 +94,7 @@ namespace DigWorkSheet.WebApi.Database
 
                 entity.Property(e => e.NumberOfContract)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
             });
 
             modelBuilder.Entity<Customer>(entity =>
@@ -103,15 +103,15 @@ namespace DigWorkSheet.WebApi.Database
 
                 entity.Property(e => e.Adress)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.Property(e => e.FirstName)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.Property(e => e.LastName)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.HasOne(d => d.Account)
                     .WithMany(p => p.Customers)
@@ -151,27 +151,27 @@ namespace DigWorkSheet.WebApi.Database
 
                 entity.Property(e => e.Adress)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.Property(e => e.Email)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.Property(e => e.FirstName)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.Property(e => e.LastName)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.Property(e => e.PhoneNumber)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.Property(e => e.Salary)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(6);
 
                 entity.HasOne(d => d.Contract)
                     .WithMany(p => p.Employees)
@@ -190,7 +190,7 @@ namespace DigWorkSheet.WebApi.Database
             {
                 entity.Property(e => e.Name)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.HasOne(d => d.Employee)
                     .WithMany(p => p.Equipment)
@@ -230,7 +230,7 @@ namespace DigWorkSheet.WebApi.Database
 
                 entity.Property(e => e.Name)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.Property(e => e.Picture).IsRequired();
 
@@ -245,13 +245,11 @@ namespace DigWorkSheet.WebApi.Database
             {
                 entity.ToTable("Position");
 
-                entity.Property(e => e.Description)
-                    .IsRequired()
-                    .HasMaxLength(1);
+                entity.Property(e => e.Description).IsRequired();
 
                 entity.Property(e => e.JobTitle)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(20);
             });
 
             modelBuilder.Entity<Request>(entity =>
@@ -262,7 +260,7 @@ namespace DigWorkSheet.WebApi.Database
 
                 entity.Property(e => e.Title)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(25);
             });
 
             modelBuilder.Entity<WorkSheet>(entity =>
@@ -271,7 +269,7 @@ namespace DigWorkSheet.WebApi.Database
 
                 entity.Property(e => e.Adress)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(15);
 
                 entity.Property(e => e.Date).HasColumnType("date");
 

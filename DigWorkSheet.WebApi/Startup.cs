@@ -1,4 +1,6 @@
+
 using DigWorkSheet.WebApi.Database;
+using DigWorkSheet.WebApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,10 +34,13 @@ namespace DigWorkSheet.WebApi
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();
 
+          
             //provjeri kdo sebe
-            var connection = @"Server=(local);Database=DigWorkSheet;Trusted_Connection=True;ConnecRetryCount=0";
+            services.AddDbContext<DigWorkSheetContext>(options =>
+             options.UseSqlServer(Configuration.GetConnectionString("connectionpc")));
 
-            services.AddDbContext<DigWorkSheetContext>(options => options.UseSqlServer(connection));
+
+            services.AddScoped<IContractService, ContractService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
