@@ -1,3 +1,4 @@
+using DigWorkSheet.WebApi.Database;
 using DigWorkSheet.WebApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -33,7 +34,7 @@ namespace DigWorkSheet.WebApi
             services.AddSwaggerGen();
 
             //provjeri kdo sebe
-            var connection = @"Server=.;Database=DigWorkSheet;Trusted_Connection=True;ConnecRetryCount=0";
+            var connection = @"Server=(local);Database=DigWorkSheet;Trusted_Connection=True;ConnecRetryCount=0";
 
             services.AddDbContext<DigWorkSheetContext>(options => options.UseSqlServer(connection));
         }
