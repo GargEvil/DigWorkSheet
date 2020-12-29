@@ -23,7 +23,7 @@ namespace DigWorkSheet.WebApi.Controllers
 
         [HttpGet]
 
-        public ActionResult<List<Model.Contracts>> Get()
+        public ActionResult<List<Model.Contract>> Get()
         {
             return _contract.Get();
         }

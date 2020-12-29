@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DigWorkSheet.Model
 {
-    public partial class Contracts
+    public partial class Contract
     {
       
         public int Id { get; set; }

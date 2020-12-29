@@ -15,15 +15,16 @@ namespace DigWorkSheet.WebApi.Services
             _context = context;
         }
 
-        public List<Model.Contracts> Get()
+        //Use AutoMapper
+        public List<Model.Contract> Get()
         {
             var list = _context.Contracts.ToList();
 
-            List<Model.Contracts> result = new List<Model.Contracts>();
+            List<Model.Contract> result = new List<Model.Contract>();
 
             foreach (var item in list)
             {
-                result.Add(new Model.Contracts()
+                result.Add(new Model.Contract()
                 {
                     Id=item.Id,
                     Content = item.Content,
