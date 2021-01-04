@@ -12,6 +12,7 @@ namespace DigWorkSheet.WebApi.Mappers
         public AutoMapping()
         {
             CreateMap<Customer, Model.Customer>().ReverseMap();
+            CreateMap<Employee, Model.Employee>().ReverseMap();
             
         }
     }

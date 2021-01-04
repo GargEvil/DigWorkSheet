@@ -20,8 +20,7 @@ namespace DigWorkSheet.WebApi.Controllers
         }
 
         [HttpGet]
-
-        public ActionResult<List<Model.Customer>> Get()
+        public List<Model.Customer> Get()
         {
             return _customer.Get();
         }
