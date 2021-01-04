@@ -1,4 +1,5 @@
 
+using AutoMapper;
 using DigWorkSheet.WebApi.Database;
 using DigWorkSheet.WebApi.Services;
 using Microsoft.AspNetCore.Builder;
@@ -34,8 +35,10 @@ namespace DigWorkSheet.WebApi
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen();
 
-          
-            //provjeri kdo sebe
+            //Register the AutoMapper
+            services.AddAutoMapper(typeof(Startup));
+
+           
             services.AddDbContext<DigWorkSheetContext>(options =>
              options.UseSqlServer(Configuration.GetConnectionString("connectionpc")));
 

@@ -1,4 +1,5 @@
-﻿using DigWorkSheet.WebApi.Database;
+﻿using AutoMapper;
+using DigWorkSheet.WebApi.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,12 @@ namespace DigWorkSheet.WebApi.Services
     public class CustomerService : ICustomerService
     {
         private readonly DigWorkSheetContext _context;
+        private readonly IMapper _mapper;
 
-        public CustomerService(DigWorkSheetContext context)
+        public CustomerService(DigWorkSheetContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         //Use AutoMapper
@@ -20,21 +23,7 @@ namespace DigWorkSheet.WebApi.Services
         {
             var list = _context.Customers.ToList();
 
-            List<Model.Customer> result = new List<Model.Customer>();
-
-            foreach (var item in list)
-            {
-                result.Add(new Model.Customer()
-                {
-                    Id=item.Id,
-                    FirstName=item.FirstName,
-                    LastName=item.LastName,
-                    Adress=item.Adress,
-                    ContractId=item.ContractId,
-                    Comment=item.Comment
-                });
-            }
-            return result;
+            return _mapper.Map<List<Model.Customer>>(list);
         }
     }
 }
