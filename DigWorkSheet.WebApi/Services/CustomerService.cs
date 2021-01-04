@@ -18,12 +18,24 @@ namespace DigWorkSheet.WebApi.Services
             _mapper = mapper;
         }
 
-        //Use AutoMapper
+        
         public List<Model.Customer> Get()
         {
             var list = _context.Customers.ToList();
 
             return _mapper.Map<List<Model.Customer>>(list);
         }
+
+        public Model.Customer Insert(Model.Customer customer)
+        {
+            var entity = _mapper.Map<Database.Customer>(customer);
+
+            _context.Customers.Add(entity);
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Customer>(entity);
+        }
+
+
     }
 }

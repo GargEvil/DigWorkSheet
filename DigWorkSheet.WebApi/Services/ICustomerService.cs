@@ -8,5 +8,7 @@ namespace DigWorkSheet.WebApi.Services
     public interface ICustomerService
     {
          List<Model.Customer> Get();
+
+        Model.Customer Insert(Model.Customer customer);
     }
 }

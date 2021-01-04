@@ -26,5 +26,10 @@ namespace DigWorkSheet.WebApi.Controllers
             return _customer.Get();
         }
 
+        [HttpPost]
+        public Model.Customer Insert(Model.Customer customer)
+        {
+            return _customer.Insert(customer);
+        }
     }
 }

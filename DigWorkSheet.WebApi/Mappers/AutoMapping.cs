@@ -11,7 +11,8 @@ namespace DigWorkSheet.WebApi.Mappers
     {
         public AutoMapping()
         {
-            CreateMap<Customer, Model.Customer>(); // means you want to map from Customer to Model.Customer
+            CreateMap<Customer, Model.Customer>().ReverseMap();
+            
         }
     }
 }

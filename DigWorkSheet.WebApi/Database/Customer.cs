@@ -20,6 +20,7 @@ namespace DigWorkSheet.WebApi.Database
         public int ContractId { get; set; }
         public string Comment { get; set; }
 
+
         public virtual Account Account { get; set; }
         public virtual Contract Contract { get; set; }
         public virtual ICollection<WorkSheet> WorkSheets { get; set; }
