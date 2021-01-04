@@ -36,6 +36,12 @@ namespace DigWorkSheet.WebApi.Services
             return _mapper.Map<Model.Customer>(entity);
         }
 
+        public Model.Customer GetById(int id)
+        {
 
+            var customer = _context.Customers.Where(c => c.Id == id).Single();
+
+            return _mapper.Map<Model.Customer>(customer);       
+        }
     }
 }
