@@ -6,7 +6,7 @@ using System.Text;
 namespace DigWorkSheet.Model
 {
     public partial class Customer
-    {
+    {       
         [Required]
         public string FirstName { get; set; }
 

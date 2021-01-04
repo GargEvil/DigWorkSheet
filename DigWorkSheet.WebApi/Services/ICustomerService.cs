@@ -12,5 +12,7 @@ namespace DigWorkSheet.WebApi.Services
         Model.Customer Insert(Model.Customer customer);
 
         Model.Customer GetById(int id);
+
+        Model.Customer Update(int id, Model.Customer customer);
     }
 }

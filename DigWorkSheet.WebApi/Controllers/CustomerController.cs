@@ -37,5 +37,11 @@ namespace DigWorkSheet.WebApi.Controllers
         {
             return _customer.GetById(id);
         }
+
+        [HttpPut("{id}")]
+        public Model.Customer Update(int id, Model.Customer customer)
+        {
+            return _customer.Update(id, customer);
+        }
     }
 }

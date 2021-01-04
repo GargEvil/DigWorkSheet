@@ -43,5 +43,20 @@ namespace DigWorkSheet.WebApi.Services
 
             return _mapper.Map<Model.Customer>(customer);       
         }
+
+        public Model.Customer Update(int id, Model.Customer customer)
+        {
+            var entity = _context.Customers.Find(id);
+
+            _context.Customers.Attach(entity);
+            _context.Customers.Update(entity);
+
+            _mapper.Map(customer, entity);
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Customer>(entity);
+            
+        }
     }
 }
