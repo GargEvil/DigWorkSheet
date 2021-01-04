@@ -14,5 +14,7 @@ namespace DigWorkSheet.WebApi.Services
         Model.Customer GetById(int id);
 
         Model.Customer Update(int id, Model.Customer customer);
+
+        List<Model.Customer> Delete(int id);
     }
 }

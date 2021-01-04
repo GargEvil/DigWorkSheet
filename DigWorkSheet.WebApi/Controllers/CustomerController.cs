@@ -43,5 +43,12 @@ namespace DigWorkSheet.WebApi.Controllers
         {
             return _customer.Update(id, customer);
         }
+
+        [HttpDelete("{id}")]
+        public List<Model.Customer> Delete(int id)
+        {
+            return _customer.Delete(id);
+        }
+
     }
 }

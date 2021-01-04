@@ -58,5 +58,17 @@ namespace DigWorkSheet.WebApi.Services
             return _mapper.Map<Model.Customer>(entity);
             
         }
+
+        public List<Model.Customer> Delete(int id)
+        {
+            var entity = _context.Customers.Find(id);
+
+            _context.Remove(entity);
+            _context.SaveChanges();
+
+            var list = _context.Customers.ToList();
+
+            return _mapper.Map<List<Model.Customer>>(list);
+        }
     }
 }
