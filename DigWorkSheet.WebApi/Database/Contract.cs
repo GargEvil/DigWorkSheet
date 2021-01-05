@@ -11,6 +11,8 @@ namespace DigWorkSheet.WebApi.Database
         {
             Customers = new HashSet<Customer>();
             Employees = new HashSet<Employee>();
+            Internets = new HashSet<Internet>();
+            Packages = new HashSet<Package>();
         }
 
         public int Id { get; set; }
@@ -19,5 +21,7 @@ namespace DigWorkSheet.WebApi.Database
 
         public virtual ICollection<Customer> Customers { get; set; }
         public virtual ICollection<Employee> Employees { get; set; }
+        public virtual ICollection<Internet> Internets { get; set; }
+        public virtual ICollection<Package> Packages { get; set; }
     }
 }

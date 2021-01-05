@@ -16,7 +16,8 @@ namespace DigWorkSheet.WebApi.Database
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Adress { get; set; }
-        public int? AccountId { get; set; }
+        public string City { get; set; }
+        public int AccountId { get; set; }
 
         public virtual Account Account { get; set; }
         public virtual ICollection<Offer> Offers { get; set; }
