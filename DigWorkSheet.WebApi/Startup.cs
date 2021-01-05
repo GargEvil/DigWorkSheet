@@ -46,7 +46,9 @@ namespace DigWorkSheet.WebApi
             services.AddScoped<IContractService, ContractService>();
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IEmployeeService, EmployeeService>();
+            services.AddScoped<IOfferService, OfferService>();
         }
+    
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
