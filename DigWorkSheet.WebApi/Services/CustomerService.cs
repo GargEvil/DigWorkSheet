@@ -70,5 +70,12 @@ namespace DigWorkSheet.WebApi.Services
 
             return _mapper.Map<List<Model.Customer>>(list);
         }
+
+        public List<Model.Customer> GetByName(string customerName)
+        {
+            var customers = _context.Customers.Where(c => c.FirstName.Contains(customerName) || c.LastName.Contains(customerName)).ToList();
+
+            return _mapper.Map<List<Model.Customer>>(customers);
+        }
     }
 }

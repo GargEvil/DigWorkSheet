@@ -49,5 +49,11 @@ namespace DigWorkSheet.WebApi.Controllers
             return _customer.Delete(id);
         }
 
+        [HttpGet("GetByName/{name})")]
+        public List<Model.Customer> GetByName( string name)
+        {
+            return _customer.GetByName(name);
+        }
+        
     }
 }
