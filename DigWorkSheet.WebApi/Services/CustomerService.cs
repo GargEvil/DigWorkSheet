@@ -28,12 +28,18 @@ namespace DigWorkSheet.WebApi.Services
 
         public Model.Customer Insert(Model.Customer customer)
         {
-            var entity = _mapper.Map<Database.Customer>(customer);
+            var account = AccountService.CreateAccount(customer);
+            var customerEntity = _mapper.Map<Database.Customer>(customer);           
 
-            _context.Customers.Add(entity);
+            var accountEntity = _mapper.Map<Account>(account);
+
+            customerEntity.Account = accountEntity;
+
+            _context.Accounts.Add(accountEntity);
+            _context.Customers.Add(customerEntity);
             _context.SaveChanges();
 
-            return _mapper.Map<Model.Customer>(entity);
+            return _mapper.Map<Model.Customer>(customerEntity);
         }
 
         public Model.Customer GetById(int id)
