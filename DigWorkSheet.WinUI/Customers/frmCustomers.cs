@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Flurl.Http;
 using Flurl;
+using DigWorkSheet.Model.Requests;
 
 namespace DigWorkSheet.WinUI.Customers
 {
@@ -23,8 +24,14 @@ namespace DigWorkSheet.WinUI.Customers
 
         private async void btnShow_Click(object sender, EventArgs e)
         {
+            var search = new CustomerSearchRequest()
+            {
+                FirstName = txtSearch.Text
+            };
+
+            
             //calling API
-            var result = await _apiService.Get<List<Model.Customer>>();
+            var result = await _apiService.Get<List<Model.Customer>>(search);
 
             dgvCustomers.DataSource = result;
         }

@@ -4,7 +4,10 @@ using System.Text;
 
 namespace DigWorkSheet.Model.Requests
 {
-    class CustomerSearchRequest
+    public class CustomerSearchRequest
     {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
     }
 }

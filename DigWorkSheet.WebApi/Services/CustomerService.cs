@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DigWorkSheet.Model.Requests;
 using DigWorkSheet.WebApi.Database;
 using System;
 using System.Collections.Generic;
@@ -19,9 +20,18 @@ namespace DigWorkSheet.WebApi.Services
         }
 
         
-        public List<Model.Customer> Get()
+        public List<Model.Customer> Get(CustomerSearchRequest request)
         {
-            var list = _context.Customers.ToList();
+            var query = _context.Customers.AsQueryable();
+
+            if(!string.IsNullOrWhiteSpace(request?.FirstName))
+            {
+                query = query.Where(x => x.FirstName.Contains(request.FirstName) || x.LastName.Contains(request.FirstName) );
+            }
+
+            
+
+            var list = query.ToList();
 
             return _mapper.Map<List<Model.Customer>>(list);
         }

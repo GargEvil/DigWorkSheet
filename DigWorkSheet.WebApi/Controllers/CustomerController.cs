@@ -1,4 +1,5 @@
-﻿using DigWorkSheet.WebApi.Services;
+﻿using DigWorkSheet.Model.Requests;
+using DigWorkSheet.WebApi.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,9 +21,9 @@ namespace DigWorkSheet.WebApi.Controllers
         }
 
         [HttpGet]
-        public List<Model.Customer> Get()
+        public List<Model.Customer> Get([FromQuery] CustomerSearchRequest request)
         {
-            return _customer.Get();
+            return _customer.Get(request);
         }
 
         [HttpPost]

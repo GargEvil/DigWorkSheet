@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Flurl.Http;
 using Flurl;
+using DigWorkSheet.Model;
 
 namespace DigWorkSheet.WinUI
 {
@@ -17,9 +18,17 @@ namespace DigWorkSheet.WinUI
             _route = route;
         }
 
-        public async Task<T> Get<T>()
+        public async Task<T> Get<T>(object search)
         {
-            var result = await $"{Properties.Settings.Default.APIUrl}/{_route}".GetJsonAsync<T>();
+            var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
+
+            if(search != null)
+            {
+                url += "?";
+                url += await search.ToQueryString();
+            }
+
+            var result = await url.GetJsonAsync<T>();
 
             return result;
         }
