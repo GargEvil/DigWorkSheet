@@ -30,23 +30,24 @@ namespace DigWorkSheet.WinUI
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonOffers = new System.Windows.Forms.Button();
+            this.buttonCustomers = new System.Windows.Forms.Button();
+            this.buttonEmployees = new System.Windows.Forms.Button();
+            this.buttonDashboard = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panelContainer = new System.Windows.Forms.Panel();
+            this.panelTracker = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.buttonOffers);
+            this.panel1.Controls.Add(this.buttonCustomers);
+            this.panel1.Controls.Add(this.buttonEmployees);
+            this.panel1.Controls.Add(this.buttonDashboard);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -54,70 +55,73 @@ namespace DigWorkSheet.WinUI
             this.panel1.Size = new System.Drawing.Size(154, 514);
             this.panel1.TabIndex = 0;
             // 
-            // button4
+            // buttonOffers
             // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = global::DigWorkSheet.WinUI.Properties.Resources.icons8_discount_24px;
-            this.button4.Location = new System.Drawing.Point(0, 407);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(154, 104);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Offers";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonOffers.FlatAppearance.BorderSize = 0;
+            this.buttonOffers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOffers.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOffers.ForeColor = System.Drawing.Color.White;
+            this.buttonOffers.Image = global::DigWorkSheet.WinUI.Properties.Resources.icons8_discount_24px;
+            this.buttonOffers.Location = new System.Drawing.Point(0, 407);
+            this.buttonOffers.Name = "buttonOffers";
+            this.buttonOffers.Size = new System.Drawing.Size(154, 104);
+            this.buttonOffers.TabIndex = 4;
+            this.buttonOffers.Text = "Offers";
+            this.buttonOffers.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonOffers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonOffers.UseVisualStyleBackColor = true;
+            this.buttonOffers.Click += new System.EventHandler(this.buttonOffers_Click);
             // 
-            // button3
+            // buttonCustomers
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Image = global::DigWorkSheet.WinUI.Properties.Resources.icons8_user_group_30px;
-            this.button3.Location = new System.Drawing.Point(0, 305);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(154, 107);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Customers";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonCustomers.FlatAppearance.BorderSize = 0;
+            this.buttonCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCustomers.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCustomers.ForeColor = System.Drawing.Color.White;
+            this.buttonCustomers.Image = global::DigWorkSheet.WinUI.Properties.Resources.icons8_user_group_30px;
+            this.buttonCustomers.Location = new System.Drawing.Point(0, 305);
+            this.buttonCustomers.Name = "buttonCustomers";
+            this.buttonCustomers.Size = new System.Drawing.Size(154, 107);
+            this.buttonCustomers.TabIndex = 3;
+            this.buttonCustomers.Text = "Customers";
+            this.buttonCustomers.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonCustomers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonCustomers.UseVisualStyleBackColor = true;
+            this.buttonCustomers.Click += new System.EventHandler(this.buttonCustomers_Click);
             // 
-            // button2
+            // buttonEmployees
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::DigWorkSheet.WinUI.Properties.Resources.icons8_workers_26px;
-            this.button2.Location = new System.Drawing.Point(0, 198);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(154, 113);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Employees";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonEmployees.FlatAppearance.BorderSize = 0;
+            this.buttonEmployees.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEmployees.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEmployees.ForeColor = System.Drawing.Color.White;
+            this.buttonEmployees.Image = global::DigWorkSheet.WinUI.Properties.Resources.icons8_workers_26px;
+            this.buttonEmployees.Location = new System.Drawing.Point(0, 198);
+            this.buttonEmployees.Name = "buttonEmployees";
+            this.buttonEmployees.Size = new System.Drawing.Size(154, 113);
+            this.buttonEmployees.TabIndex = 2;
+            this.buttonEmployees.Text = "Employees";
+            this.buttonEmployees.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonEmployees.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonEmployees.UseVisualStyleBackColor = true;
+            this.buttonEmployees.Click += new System.EventHandler(this.buttonEmployees_Click);
             // 
-            // button1
+            // buttonDashboard
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::DigWorkSheet.WinUI.Properties.Resources.icons8_home_26px;
-            this.button1.Location = new System.Drawing.Point(0, 95);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(154, 105);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Dashboard";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonDashboard.FlatAppearance.BorderSize = 0;
+            this.buttonDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDashboard.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDashboard.ForeColor = System.Drawing.Color.White;
+            this.buttonDashboard.Image = global::DigWorkSheet.WinUI.Properties.Resources.icons8_home_26px;
+            this.buttonDashboard.Location = new System.Drawing.Point(0, 88);
+            this.buttonDashboard.Name = "buttonDashboard";
+            this.buttonDashboard.Size = new System.Drawing.Size(154, 116);
+            this.buttonDashboard.TabIndex = 1;
+            this.buttonDashboard.Text = "Dashboard";
+            this.buttonDashboard.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.buttonDashboard.UseVisualStyleBackColor = true;
+            this.buttonDashboard.Click += new System.EventHandler(this.buttonDashboard_Click);
             // 
             // panel3
             // 
@@ -140,26 +144,36 @@ namespace DigWorkSheet.WinUI
             this.label1.Text = "DWS\r\nSolutions";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel2
+            // panelContainer
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(154, 311);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(789, 203);
-            this.panel2.TabIndex = 1;
+            this.panelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContainer.Location = new System.Drawing.Point(154, 0);
+            this.panelContainer.Name = "panelContainer";
+            this.panelContainer.Size = new System.Drawing.Size(789, 514);
+            this.panelContainer.TabIndex = 1;
+            // 
+            // panelTracker
+            // 
+            this.panelTracker.BackColor = System.Drawing.Color.White;
+            this.panelTracker.Location = new System.Drawing.Point(154, 90);
+            this.panelTracker.Name = "panelTracker";
+            this.panelTracker.Size = new System.Drawing.Size(10, 110);
+            this.panelTracker.TabIndex = 2;
             // 
             // frmDashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(44)))), ((int)(((byte)(51)))));
             this.ClientSize = new System.Drawing.Size(943, 514);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panelTracker);
+            this.Controls.Add(this.panelContainer);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(120)))), ((int)(((byte)(138)))));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "frmDashboard";
             this.Text = "frmDashboard";
+            this.Load += new System.EventHandler(this.frmDashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -172,10 +186,11 @@ namespace DigWorkSheet.WinUI
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panelContainer;
+        private System.Windows.Forms.Button buttonDashboard;
+        private System.Windows.Forms.Button buttonCustomers;
+        private System.Windows.Forms.Button buttonEmployees;
+        private System.Windows.Forms.Button buttonOffers;
+        private System.Windows.Forms.Panel panelTracker;
     }
 }
