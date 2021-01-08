@@ -18,6 +18,7 @@ namespace DigWorkSheet.WebApi.Database
         public string Adress { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string City { get; set; }
         public DateTime DateOfBirth { get; set; }
         public int AccountId { get; set; }
         public int ContractId { get; set; }

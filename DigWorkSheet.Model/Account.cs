@@ -8,5 +8,7 @@ namespace DigWorkSheet.Model
     {
         public string UserName { get; set; }
         public char Password { get; set; }
+        public int? RoleId { get; set; }
+
     }
 }

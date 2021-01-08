@@ -47,7 +47,9 @@ namespace DigWorkSheet.WebApi.Services
 
         public Model.Employee Insert(Model.Employee employee)
         {
+            var account = AccountService.CreateAccountForEmployee(employee);
             var entity = _mapper.Map<Database.Employee>(employee);
+
 
             _context.Add(entity);
             _context.SaveChanges();

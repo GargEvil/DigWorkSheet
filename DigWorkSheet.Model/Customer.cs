@@ -6,7 +6,7 @@ using System.Text;
 namespace DigWorkSheet.Model
 {
     public partial class Customer
-    {       
+    {
         [Required]
         public string FirstName { get; set; }
 
@@ -15,6 +15,8 @@ namespace DigWorkSheet.Model
 
         [Required]
         public string Adress { get; set; }
+
+        public string City { get; set; }
 
         [Required]
         public int ContractId { get; set; }
@@ -26,5 +28,6 @@ namespace DigWorkSheet.Model
         public string Email { get; set; }
 
         public DateTime DateOfBirth { get; set; }
+      
     }
 }

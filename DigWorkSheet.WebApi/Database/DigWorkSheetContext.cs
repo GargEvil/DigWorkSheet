@@ -30,6 +30,7 @@ namespace DigWorkSheet.WebApi.Database
         public virtual DbSet<Package> Packages { get; set; }
         public virtual DbSet<Position> Positions { get; set; }
         public virtual DbSet<Request> Requests { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<WorkSheet> WorkSheets { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -51,11 +52,16 @@ namespace DigWorkSheet.WebApi.Database
 
                 entity.Property(e => e.Password)
                     .IsRequired()
-                    .HasMaxLength(1);
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.UserName)
                     .IsRequired()
                     .HasMaxLength(50);
+
+                entity.HasOne(d => d.Role)
+                    .WithMany(p => p.Accounts)
+                    .HasForeignKey(d => d.RoleId)
+                    .HasConstraintName("FK__Account__RoleId__25869641");
             });
 
             modelBuilder.Entity<Administrator>(entity =>
@@ -63,10 +69,6 @@ namespace DigWorkSheet.WebApi.Database
                 entity.ToTable("Administrator");
 
                 entity.Property(e => e.Adress)
-                    .IsRequired()
-                    .HasMaxLength(25);
-
-                entity.Property(e => e.City)
                     .IsRequired()
                     .HasMaxLength(25);
 
@@ -82,7 +84,7 @@ namespace DigWorkSheet.WebApi.Database
                     .WithMany(p => p.Administrators)
                     .HasForeignKey(d => d.AccountId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Administr__Accou__300424B4");
+                    .HasConstraintName("FK__Administr__Accou__32E0915F");
             });
 
             modelBuilder.Entity<Contract>(entity =>
@@ -101,6 +103,10 @@ namespace DigWorkSheet.WebApi.Database
                 entity.ToTable("Customer");
 
                 entity.Property(e => e.Adress)
+                    .IsRequired()
+                    .HasMaxLength(25);
+
+                entity.Property(e => e.City)
                     .IsRequired()
                     .HasMaxLength(25);
 
@@ -126,13 +132,13 @@ namespace DigWorkSheet.WebApi.Database
                     .WithMany(p => p.Customers)
                     .HasForeignKey(d => d.AccountId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Customer__Accoun__37A5467C");
+                    .HasConstraintName("FK__Customer__Accoun__3A81B327");
 
                 entity.HasOne(d => d.Contract)
                     .WithMany(p => p.Customers)
                     .HasForeignKey(d => d.ContractId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Customer__Commen__36B12243");
+                    .HasConstraintName("FK__Customer__Commen__398D8EEE");
             });
 
             modelBuilder.Entity<CustomerRequest>(entity =>
@@ -145,13 +151,13 @@ namespace DigWorkSheet.WebApi.Database
                     .WithMany()
                     .HasForeignKey(d => d.CustomerId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__CustomerR__Custo__412EB0B6");
+                    .HasConstraintName("FK__CustomerR__Custo__440B1D61");
 
                 entity.HasOne(d => d.Request)
                     .WithMany()
                     .HasForeignKey(d => d.RequestId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__CustomerR__Reque__4222D4EF");
+                    .HasConstraintName("FK__CustomerR__Reque__44FF419A");
             });
 
             modelBuilder.Entity<Employee>(entity =>
@@ -190,13 +196,13 @@ namespace DigWorkSheet.WebApi.Database
                     .WithMany(p => p.Employees)
                     .HasForeignKey(d => d.ContractId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Employee__Contra__32E0915F");
+                    .HasConstraintName("FK__Employee__Contra__35BCFE0A");
 
                 entity.HasOne(d => d.Position)
                     .WithMany(p => p.Employees)
                     .HasForeignKey(d => d.PositionId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Employee__Positi__33D4B598");
+                    .HasConstraintName("FK__Employee__Positi__36B12243");
             });
 
             modelBuilder.Entity<Equipment>(entity =>
@@ -209,7 +215,7 @@ namespace DigWorkSheet.WebApi.Database
                     .WithMany(p => p.Equipment)
                     .HasForeignKey(d => d.EmployeeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Equipment__Price__3D5E1FD2");
+                    .HasConstraintName("FK__Equipment__Price__403A8C7D");
             });
 
             modelBuilder.Entity<EquipmentEmployeeWorkSheet>(entity =>
@@ -220,19 +226,19 @@ namespace DigWorkSheet.WebApi.Database
                     .WithMany(p => p.EquipmentEmployeeWorkSheets)
                     .HasForeignKey(d => d.EmployeeId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Equipment__Emplo__48CFD27E");
+                    .HasConstraintName("FK__Equipment__Emplo__4BAC3F29");
 
                 entity.HasOne(d => d.Equipment)
                     .WithMany(p => p.EquipmentEmployeeWorkSheets)
                     .HasForeignKey(d => d.EquipmentId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Equipment__Equip__47DBAE45");
+                    .HasConstraintName("FK__Equipment__Equip__4AB81AF0");
 
                 entity.HasOne(d => d.WorkSheet)
                     .WithMany(p => p.EquipmentEmployeeWorkSheets)
                     .HasForeignKey(d => d.WorkSheetId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Equipment__WorkS__49C3F6B7");
+                    .HasConstraintName("FK__Equipment__WorkS__4CA06362");
             });
 
             modelBuilder.Entity<Internet>(entity =>
@@ -250,7 +256,7 @@ namespace DigWorkSheet.WebApi.Database
                 entity.HasOne(d => d.Contract)
                     .WithMany(p => p.Internets)
                     .HasForeignKey(d => d.ContractId)
-                    .HasConstraintName("FK__Internet__Contra__29572725");
+                    .HasConstraintName("FK__Internet__Contra__2C3393D0");
             });
 
             modelBuilder.Entity<Offer>(entity =>
@@ -267,7 +273,7 @@ namespace DigWorkSheet.WebApi.Database
                     .WithMany(p => p.Offers)
                     .HasForeignKey(d => d.AdminId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Offer__AdminId__3A81B327");
+                    .HasConstraintName("FK__Offer__AdminId__3D5E1FD2");
             });
 
             modelBuilder.Entity<Package>(entity =>
@@ -279,12 +285,12 @@ namespace DigWorkSheet.WebApi.Database
                 entity.HasOne(d => d.Contract)
                     .WithMany(p => p.Packages)
                     .HasForeignKey(d => d.ContractId)
-                    .HasConstraintName("FK__Package__Contrac__2D27B809");
+                    .HasConstraintName("FK__Package__Contrac__300424B4");
 
                 entity.HasOne(d => d.Internet)
                     .WithMany(p => p.Packages)
                     .HasForeignKey(d => d.InternetId)
-                    .HasConstraintName("FK__Package__Interne__2C3393D0");
+                    .HasConstraintName("FK__Package__Interne__2F10007B");
             });
 
             modelBuilder.Entity<Position>(entity =>
@@ -309,6 +315,15 @@ namespace DigWorkSheet.WebApi.Database
                     .HasMaxLength(25);
             });
 
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.ToTable("Role");
+
+                entity.Property(e => e.Title)
+                    .IsRequired()
+                    .HasMaxLength(25);
+            });
+
             modelBuilder.Entity<WorkSheet>(entity =>
             {
                 entity.ToTable("WorkSheet");
@@ -327,7 +342,7 @@ namespace DigWorkSheet.WebApi.Database
                     .WithMany(p => p.WorkSheets)
                     .HasForeignKey(d => d.CustomerId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__WorkSheet__Custo__44FF419A");
+                    .HasConstraintName("FK__WorkSheet__Custo__47DBAE45");
             });
 
             OnModelCreatingPartial(modelBuilder);

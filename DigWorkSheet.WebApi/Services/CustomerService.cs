@@ -38,7 +38,8 @@ namespace DigWorkSheet.WebApi.Services
 
         public Model.Customer Insert(Model.Customer customer)
         {
-            var account = AccountService.CreateAccount(customer);
+           
+            var account = AccountService.CreateAccountForCustomer(customer);
             var customerEntity = _mapper.Map<Database.Customer>(customer);           
 
             var accountEntity = _mapper.Map<Account>(account);
