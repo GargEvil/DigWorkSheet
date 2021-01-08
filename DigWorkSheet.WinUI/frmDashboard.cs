@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace DigWorkSheet.WinUI
 {
-    public partial class Form1 : Form
+    public partial class frmDashboard : Form
     {
-        public Form1()
+        public frmDashboard()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
