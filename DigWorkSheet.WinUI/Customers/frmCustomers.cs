@@ -26,7 +26,7 @@ namespace DigWorkSheet.WinUI.Customers
         {
             var search = new CustomerSearchRequest()
             {
-                FirstName = txtSearch.Text
+                Search = txtSearch.Text
             };
 
             

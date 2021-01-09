@@ -24,9 +24,12 @@ namespace DigWorkSheet.WebApi.Services
         {
             var query = _context.Customers.AsQueryable();
 
-            if(!string.IsNullOrWhiteSpace(request?.FirstName))
+            if(!string.IsNullOrWhiteSpace(request?.Search))
             {
-                query = query.Where(x => x.FirstName.Contains(request.FirstName) || x.LastName.Contains(request.FirstName) );
+                query = query.Where(x => x.FirstName.Contains(request.Search) 
+                || x.LastName.Contains(request.Search) 
+                || x.City.Contains(request.Search)
+                || x.Adress.Contains(request.Search));
             }
 
             
