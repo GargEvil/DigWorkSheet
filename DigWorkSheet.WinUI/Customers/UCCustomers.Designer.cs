@@ -54,7 +54,7 @@ namespace DigWorkSheet.WinUI.Customers
             // 
             this.gbCustomers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(45)))), ((int)(((byte)(51)))));
             this.gbCustomers.Controls.Add(this.dgvCustomers);
-            this.gbCustomers.ForeColor = System.Drawing.Color.Snow;
+            this.gbCustomers.ForeColor = System.Drawing.Color.Teal;
             this.gbCustomers.Location = new System.Drawing.Point(18, 172);
             this.gbCustomers.Name = "gbCustomers";
             this.gbCustomers.Size = new System.Drawing.Size(758, 326);

@@ -83,6 +83,7 @@
     <Compile Include="frmDashboard.Designer.cs">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Offers\UCOffers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -109,6 +110,13 @@
     <EmbeddedResource Include="frmDashboard.resx">
       <DependentUpon>frmDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\DigWorkSheet.WinUI.Customers.frmCustomers.resources" />
+    <EmbeddedResource Include="obj\Debug\DigWorkSheet.WinUI.Customers.UCCustomers.resources" />
+    <EmbeddedResource Include="obj\Debug\DigWorkSheet.WinUI.Employees.UCEmployee.resources" />
+    <EmbeddedResource Include="obj\Debug\DigWorkSheet.WinUI.frmDashboard.resources" />
+    <EmbeddedResource Include="obj\Debug\DigWorkSheet.WinUI.Offers.UCOffers.resources" />
+    <EmbeddedResource Include="obj\Debug\DigWorkSheet.WinUI.Properties.Resources.resources" />
+    <EmbeddedResource Include="obj\Debug\DigWorkSheet.WinUI.UCDashboard.resources" />
     <EmbeddedResource Include="Offers\UCOffers.resx">
       <DependentUpon>UCOffers.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +128,12 @@
     <EmbeddedResource Include="UCDashboard.resx">
       <DependentUpon>UCDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\DigWorkSheet.WinUI.csproj.CopyComplete" />
+    <None Include="obj\Debug\DigWorkSheet.WinUI.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\DigWorkSheet.WinUI.csproj.GenerateResource.cache" />
+    <None Include="obj\Debug\DigWorkSheet.WinUI.csprojAssemblyReference.cache" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>PublicSettingsSingleFileGenerator</Generator>
@@ -166,7 +180,10 @@
     <None Include="Resources\icons8_discount_24px1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icons8_search_24px.png" />
+    <Content Include="obj\Debug\DigWorkSheet.WinUI.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\DigWorkSheet.WinUI.exe" />
+    <Content Include="obj\Debug\DigWorkSheet.WinUI.pdb" />
+    <Content Include="obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

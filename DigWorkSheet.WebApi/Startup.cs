@@ -47,6 +47,7 @@ namespace DigWorkSheet.WebApi
             services.AddScoped<ICustomerService, CustomerService>();
             services.AddScoped<IEmployeeService, EmployeeService>();
             services.AddScoped<IOfferService, OfferService>();
+            services.AddScoped<IInternetService, InternetService>();
         }
     
 

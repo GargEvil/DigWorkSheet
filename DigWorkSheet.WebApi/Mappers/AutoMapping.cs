@@ -15,6 +15,7 @@ namespace DigWorkSheet.WebApi.Mappers
             CreateMap<Employee, Model.Employee>().ReverseMap();
             CreateMap<Account, Model.Account>().ReverseMap();
             CreateMap<Offer, Model.Offer>().ReverseMap();
+            CreateMap<Internet, Model.Internet>().ReverseMap();
         }
     }
 }
