@@ -21,9 +21,11 @@ namespace DigWorkSheet.WebApi.Controllers
         }
 
         [HttpGet]
-        public List<Model.Customer> Get([FromQuery] CustomerSearchRequest request)
+        public async Task<ObjectResult> Get([FromQuery] CustomerSearchRequest request)
         {
-            return _customer.Get(request);
+            var customers = await _customer.Get(request);
+
+            return Ok(customers);
         }
 
         [HttpPost]

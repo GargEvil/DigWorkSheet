@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DigWorkSheet.Model.Requests;
 using DigWorkSheet.WebApi.Database;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace DigWorkSheet.WebApi.Services
         }
 
         
-        public List<Model.Customer> Get(CustomerSearchRequest request)
+        public async Task<List<Model.Customer>> Get(CustomerSearchRequest request)
         {
             var query = _context.Customers.AsQueryable();
 
@@ -34,9 +35,9 @@ namespace DigWorkSheet.WebApi.Services
 
             
 
-            var list = query.ToList();
+            var list = await query.ToListAsync();
 
-            return _mapper.Map<List<Model.Customer>>(list);
+            return await Task.FromResult(_mapper.Map<List<Model.Customer>>(list));
         }
 
         public Model.Customer Insert(Model.Customer customer)
